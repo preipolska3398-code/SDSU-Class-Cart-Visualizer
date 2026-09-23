@@ -1,0 +1,28 @@
+# Name shown for the workflow in GitHub Actions
+name: Requirement Base Tests
+
+# Run this workflow whenever a pull request is created or updated
+on:
+  pull_request:
+
+jobs:
+  test:
+
+    # Use a temporary Ubuntu computer provided by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Download the repository files onto the temporary machine
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install Node.js so the JavaScript test can run
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Run the test command defined in package.json
+      - name: Run tests
+        run: npm test
