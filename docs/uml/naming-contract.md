@@ -3,5 +3,3 @@
 |Professor|Matthew|Tarran, Matthew            |
 |Class Section |Matthew|Tarran,Matthew,Poulina|
 |Student|Poulina| Poulina, Finja|
-|RateMyProfessorLink| Tarran| Tarran|
-|RMPButtonView| Tarran| Tarran|
