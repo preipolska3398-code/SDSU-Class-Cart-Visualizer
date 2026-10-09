@@ -9,7 +9,7 @@ function getInstructors(){
             'td:nth-child(8)' 
         ];
         
-    for (let selectors of selectors) {
+    for (const selector of selectors) {
             let cells = document.querySelectorAll(selector);
             if (cells.length > 0) {
                 return cells; 
@@ -28,7 +28,7 @@ function getSchedules(){
             'td:nth-child(6)' 
         ];
 
-     for (let selectors of selectors) {
+     for (const selector of selectors) {
             let cells = document.querySelectorAll(selector);
             if (cells.length > 0) {
                 return cells; 
@@ -44,7 +44,7 @@ function getSeats(){
             '[class*="Seats"]',
             'td:nth-child(9)' 
         ]
-   for (let selectors of selectors) {
+   for (const selector of selectors) {
             let cells = document.querySelectorAll(selector);
             if (cells.length > 0) {
                 return cells; 
@@ -54,8 +54,55 @@ function getSeats(){
         return { cells: [], selectors: null};  
 }
 
+function getClassName(){
+  const selectors = [
+            'h1',
+            'h2',
+            'h3',
+            '[class*="Course"]'
+        ]
+   for (const selector of selectors) {
+            let cells = document.querySelectorAll(selector);
+            if (cells.length > 0) {
+                return cells; 
+            }
+        }
+
+        return { cells: [], selectors: null};  
+}
+
+function getLocation(){
+  const selectors = [
+            'td[headers*="Room"]',
+            '[class*="Room"]',
+            'td:nth-child(0)' 
+        ]
+   for (const selector of selectors) {
+            let cells = document.querySelectorAll(selector);
+            if (cells.length > 0) {
+                return cells; 
+            }
+        }
+
+        return { cells: [], selectors: null};  
+}
+
+function accessSDSUPageData() {
+    const data = {
+        courseName: getClassName()[0]?.textContent?.trim() || '',
+        instructor: getInstructors()[0]?.textContent?.trim() || '',
+        schedule: getSchedules()[0]?.textContent?.trim() || '',
+        seats: getSeats()[0]?.textContent?.trim() || '',
+        location: getLocation()[0]?.textContent?.trim() || ''
+    };
+
+    chrome.storage.local.set({ aztecScheduleSyncData: data });
+    return data;
+}
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === "requestData") {
-            accessSDSUPageData();
+            const data = accessSDSUPageData();
+            sendResponse({ data });
         }
     });
