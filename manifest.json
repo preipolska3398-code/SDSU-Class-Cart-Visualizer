@@ -6,5 +6,27 @@
   "action": {
     "default_popup": "popup.html",
     "default_title": "Aztec Schedule Sync"
-  }
+  },
+  "permissions":[
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "background":{
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://cmsweb.cms.sdsu.edu/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cmsweb.cms.sdsu.edu/*"
+      ],
+      "js": [
+        "content.js"
+      ], 
+      "run_at": "document_idle" 
+    }
+  ]
 }
