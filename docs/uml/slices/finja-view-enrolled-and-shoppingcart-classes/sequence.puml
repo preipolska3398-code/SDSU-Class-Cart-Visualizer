@@ -1,0 +1,23 @@
+@startuml
+title UC-1: View Enrolled and Shoppingcart Classes
+
+actor Student
+participant "Browser Extension" as Extension
+participant "University Website" as Website
+
+Student -> Extension: Open extension
+
+Extension -> Website: Search enrolled and shoppingcart classes
+Website --> Extension: Return enrolled and shoppingcart classes
+
+Extension -> Extension: Process class data
+
+Extension --> Student: Display class overview\n(classname, teacher, schedule,\nlocation, seats)
+
+alt classes found
+    Extension --> Student: Show enrolled and planned classes
+else No classes found
+    Extension --> Student: Show "No classes found"
+end
+
+@enduml
