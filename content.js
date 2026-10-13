@@ -1,61 +1,36 @@
 "use strict";
 
-setTimeout(2000);
+function getShoppingCartClasses() {
+    const classes = [];
 
-function getInstructors(){
-    const selectors = [
-            'td[headers*="Instructor"]',
-            '[class*="Instructor"]',
-            'td:nth-child(8)' 
-        ];
-        
-    for (let selectors of selectors) {
-            let cells = document.querySelectorAll(selector);
-            if (cells.length > 0) {
-                return cells; 
-            }
-        }
+    const courseElements = document.querySelectorAll(
+        '[id^="DERIVED_SSR_FL_SSR_DESCR80$"]'
+    );
 
-        return { cells: [], selectors: null}; 
-    
-}
+    courseElements.forEach((courseElement, index) => {
+        const professorElement = document.getElementById(
+            `DERIVED_REGFRM1_SSR_INSTR_LONG$${index}`
+        );
 
-function getSchedules(){
-    const selectors = [
-            'td[headers*="Days"]',
-            'td[headers*="Times"]',
-            '[class*="Meeting"]',
-            'td:nth-child(6)' 
-        ];
+        classes.push({
+            className: courseElement.textContent.trim(),
+            professor: professorElement
+                ? professorElement.textContent.trim()
+                : "Professor not found"
+        });
+    });
 
-     for (let selectors of selectors) {
-            let cells = document.querySelectorAll(selector);
-            if (cells.length > 0) {
-                return cells; 
-            }
-        }
-
-        return { cells: [], selectors: null};  
-}
-
-function getSeats(){
-  const selectors = [
-            'td[headers*="Seats"]',
-            '[class*="Seats"]',
-            'td:nth-child(9)' 
-        ]
-   for (let selectors of selectors) {
-            let cells = document.querySelectorAll(selector);
-            if (cells.length > 0) {
-                return cells; 
-            }
-        }
-
-        return { cells: [], selectors: null};  
+    return classes;
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.action === "requestData") {
-            accessSDSUPageData();
-        }
-    });
+    if (request.action === "requestData") {
+        const classes = getShoppingCartClasses();
+
+        console.log("SHOPPING CART CLASSES:", classes);
+
+        sendResponse({
+            data: classes
+        });
+    }
+});
