@@ -22,6 +22,9 @@ function getShoppingCartClasses() {
         const scheduleIndex = headers.findIndex((header) =>
             /day|time|schedule/i.test(header.textContent)
         );
+        const seatsIndex = headers.findIndex((header) =>
+            /seat|enrollment|capacity/i.test(header.textContent)
+        );
 
         classes.push({
             className: courseElement.textContent.trim(),
@@ -32,6 +35,10 @@ function getShoppingCartClasses() {
 
             schedule: scheduleIndex >= 0
                 ? row.cells[scheduleIndex].textContent.trim()
+                : "",
+
+            seats: seatsIndex >= 0
+                ? row.cells[seatsIndex].textContent.trim()
                 : "",
 
             room: roomIndex >= 0

@@ -69,6 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             courseDiv.appendChild(room);
                         }
 
+                        if (course.seats) {
+                            const seats = document.createElement("p");
+                            seats.textContent = "Seats: " + course.seats;
+                            courseDiv.appendChild(seats);
+                        }
+
                         courseDiv.appendChild(professor);
 
                         container.appendChild(courseDiv);
