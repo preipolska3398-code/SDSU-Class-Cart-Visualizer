@@ -15,7 +15,6 @@ Tarran Thomas
 - Reads classes and professor names from the SDSU shopping cart
 - Searches Rate My Professors automatically
 - Opens the direct professor profile when a match is found
-- Falls back to the RMP search page if no exact match is found
 
 ## Main Files
 
@@ -37,6 +36,9 @@ Tarran Thomas
 
 ## How It Works
 
-The extension gets the professor name from the SDSU page, searches Rate My Professors for that professor at SDSU, and links directly to the matching profile when possible.
+The extension gets the professor name from the SDSU page, searches Rate My Professors for that professor at SDSU, and links directly to the matching profile when possible. If no safe match is found, it provides the Rate My Professors search page instead.
 
-If no safe match is found, it provides the Rate My Professors search page instead.
+## Bugs/Improvements
+
+-Sometimes when only the first initial of the professor is provided on the sdsu page, the search will fail in Rate My Professor.
+-The extension only works for shopping cart not class search.
