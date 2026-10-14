@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         container.appendChild(courseDiv);
 
-                        // Do not show an RMP link if no professor is assigned.
+                        // don't show a RMP link if no professor is assigned.
                         if (
                             !course.professor ||
                             course.professor
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                 if (result.url.includes("/professor/")) {
     // If the direct profile was found,
-    // only show the link.
+    // only show the link
     rmpStatus.textContent = "";
 
     link.textContent =

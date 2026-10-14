@@ -48,7 +48,7 @@ async function findRateMyProfessor(instructor) {
     const professorUrl =
         findMatchingProfessor(html, cleanName);
 
-    // Direct professor page found
+    // professor page found
     if (professorUrl) {
         return {
             ok: true,
@@ -58,7 +58,7 @@ async function findRateMyProfessor(instructor) {
         };
     }
 
-    // No safe match, so use the search page
+    // No match found, so use the search page instead
     return {
         ok: true,
         direct: false,
@@ -81,7 +81,7 @@ function cleanInstructorName(name) {
         .replace(/\s+/g, " ")
         .trim();
 
-    // Convert "Mayes, A." into "A. Mayes"
+    // Converts to correct format
     const parts = cleaned
         .split(",")
         .map(part => part.trim())
@@ -102,7 +102,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
     const startIndex = html.indexOf(startMarker);
     const endIndex = html.indexOf(endMarker);
 
-    // Make sure the RMP data exists.
+    // checks if the RMP data exists
     if (
         startIndex === -1 ||
         endIndex === -1 ||
@@ -112,13 +112,15 @@ function findMatchingProfessor(html, sdsuProfessorName) {
         return null;
     }
 
-    // Pull out just the JSON stored in __RELAY_STORE__.
+    // Pull out just the JSON stored in __RELAY_STORE__
+
     let jsonText = html.substring(
         startIndex + startMarker.length,
         endIndex
     );
 
-    // Remove whitespace and the semicolon after the JSON.
+    // Remove whitespace and the semicolon after the JSON
+
     jsonText = jsonText.trim();
 
     if (jsonText.endsWith(";")) {
@@ -140,9 +142,9 @@ function findMatchingProfessor(html, sdsuProfessorName) {
 
     const candidates = [];
 
-    /*
-        Look through the RMP data for actual Teacher objects.
-    */
+    
+    // Look through the RMP data for actual Teacher objects
+    
     for (const key in relayData) {
         const item = relayData[key];
 
