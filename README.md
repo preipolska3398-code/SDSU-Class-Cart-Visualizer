@@ -4,17 +4,20 @@
 
 Aztec Schedule Sync is a Chrome extension that helps SDSU students view class information and quickly open the correct Rate My Professors page for their instructor.
 
+
 # Group Members
 - Finja Bruenen
 - Poulina Reipolska
 - Tarran Thomas
 - Matthew Verhagen
 
+
 ## Features
 
 - Reads classes and professor names from the SDSU shopping cart
 - Searches Rate My Professors automatically
 - Opens the direct professor profile when a match is found
+
 
 ## Main Files
 
@@ -25,9 +28,11 @@ Aztec Schedule Sync is a Chrome extension that helps SDSU students view class in
 - `style.css` — popup styling
 - `manifest.json` — Chrome extension configuration and permissions
 
+
 ## How It Works
 
 The extension gets the professor name from the SDSU page, searches Rate My Professors for that professor at SDSU, and links directly to the matching profile when possible. If no safe match is found, it provides the Rate My Professors search page instead.
+
 
 ## How to Install
 
@@ -38,7 +43,12 @@ The extension gets the professor name from the SDSU page, searches Rate My Profe
 5. Select the project folder.
 6. Open the SDSU shopping cart and click the extension.
 
+
 ## Bugs/Improvements
 
 - Sometimes when only the first initial of the professor is provided on the sdsu page, the search will fail in Rate My Professor.
 - The extension only works for shopping cart not class search.
+
+# Note
+
+- All the classes in the src folder are stub classes that we chose not to use
