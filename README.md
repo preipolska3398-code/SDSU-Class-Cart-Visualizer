@@ -5,10 +5,10 @@
 Aztec Schedule Sync is a Chrome extension that helps SDSU students view class information and quickly open the correct Rate My Professors page for their instructor.
 
 # Group Members
-Finja Bruenen
-Poulina Reipolska
-Matthew Verhagen
-Tarran Thomas
+- Finja Bruenen
+- Poulina Reipolska
+- Tarran Thomas
+- Matthew Verhagen
 
 ## Features
 
