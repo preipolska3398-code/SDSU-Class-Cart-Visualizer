@@ -58,6 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         courseDiv.appendChild(className);
                         courseDiv.appendChild(professor);
 
+                        if (course.room) {
+                            const room = document.createElement("p");
+                            room.textContent = "Room: " + course.room;
+                            courseDiv.appendChild(room);
+                        }
+
                         container.appendChild(courseDiv);
 
                         // Do not show an RMP link
