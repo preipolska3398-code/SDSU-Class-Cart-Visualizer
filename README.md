@@ -43,7 +43,7 @@ The extension gets the professor name from the SDSU page, searches Rate My Profe
 5. Select the project folder.
 6. Open the SDSU shopping cart and click the extension.
 
-- If you work on branches and need to test things, you should go to the chrome://extensions again and relaod the extension to make sure it is updated.
+- If you work on branches and need to test things, you should go to the chrome://extensions again and relaod the extension to make sure it is updated. After that you also need to reopen the sdsu website (reload is not enough).
 
 
 ## Bugs/Improvements
