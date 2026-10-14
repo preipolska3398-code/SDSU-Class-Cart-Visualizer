@@ -19,6 +19,9 @@ function getShoppingCartClasses() {
         const roomIndex = headers.findIndex((header) =>
             /room|location/i.test(header.textContent)
         );
+        const scheduleIndex = headers.findIndex((header) =>
+            /day|time|schedule/i.test(header.textContent)
+        );
 
         classes.push({
             className: courseElement.textContent.trim(),
@@ -26,6 +29,10 @@ function getShoppingCartClasses() {
             professor: professorElement
                 ? professorElement.textContent.trim()
                 : "Professor not found",
+
+            schedule: scheduleIndex >= 0
+                ? row.cells[scheduleIndex].textContent.trim()
+                : "",
 
             room: roomIndex >= 0
                 ? row.cells[roomIndex].textContent.trim()
