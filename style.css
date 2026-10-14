@@ -1,35 +1,36 @@
-body{
-  margin: 0; 
-  padding: 20px;
-  color: white; 
-  font-family: serif;
-  mid-width: 280px; 
+body {
+    margin: 0;
+    padding: 20px;
+
+    color: black;
+    background-color: white;
+
+    font-family: Arial, sans-serif;
+
+    min-width: 320px;
 }
 
-p{
-  margin: 0 0 16px;
-  font-size: 13px;
+h1 {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: red;
+
+    padding-bottom: 8px;
+    border-bottom: 2px solid red;
 }
 
-h1{
-  font-size: 18px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: red;
-  padding-bottom: 8px;
-  border-bottom: 2px;
+p {
+    margin: 8px 0;
+    font-size: 14px;
 }
 
-button{
-  display: inline-block;
-  padding: 10px 18px;
-  background: red;
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+.course {
+    padding: 10px 0;
+    border-bottom: 1px solid #cccccc;
 }
 
-button:hover{
-  background: darkred;
+.course:last-child {
+    border-bottom: none;
 }
