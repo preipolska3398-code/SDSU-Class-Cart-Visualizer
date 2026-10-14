@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 { action: "requestData" },
                 (response) => {
                     if (chrome.runtime.lastError) {
-                        console.error(chrome.runtime.lastError);
+                        console.error(
+                            chrome.runtime.lastError
+                        );
 
                         container.textContent =
                             "Could not connect to SDSU page.";
@@ -58,7 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         container.appendChild(courseDiv);
 
-                        // don't show a RMP link if no professor is assigned.
+                        // Do not show an RMP link
+                        // if no professor is assigned.
                         if (
                             !course.professor ||
                             course.professor
@@ -78,11 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         chrome.runtime.sendMessage(
                             {
-                                action: "findRateMyProfessor",
-                                instructor: course.professor
+                                action:
+                                    "findRateMyProfessor",
+                                instructor:
+                                    course.professor
                             },
                             (result) => {
-                                if (chrome.runtime.lastError) {
+                                if (
+                                    chrome.runtime.lastError
+                                ) {
                                     console.error(
                                         chrome.runtime.lastError
                                     );
@@ -96,7 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return;
                                 }
 
-                                if (!result || !result.url) {
+                                if (
+                                    !result ||
+                                    !result.url
+                                ) {
                                     showSearchLink(
                                         courseDiv,
                                         rmpStatus,
@@ -107,30 +117,40 @@ document.addEventListener("DOMContentLoaded", () => {
                                 }
 
                                 const link =
-                                    document.createElement("a");
+                                    document.createElement(
+                                        "a"
+                                    );
 
                                 link.href = result.url;
                                 link.target = "_blank";
-                                link.rel = "noopener noreferrer";
+                                link.rel =
+                                    "noopener noreferrer";
 
-                                if (result.url.includes("/professor/")) {
-    // If the direct profile was found,
-    // only show the link
-    rmpStatus.textContent = "";
+                                if (
+                                    result.url.includes(
+                                        "/professor/"
+                                    )
+                                ) {
+                                    // Direct profile found,
+                                    // only show the link.
+                                    rmpStatus.textContent =
+                                        "";
 
-    link.textContent =
-        "Open Rate My Professor";
-} else {
-    // If no direct profile was found,
-    // show a message and the search link.
-    rmpStatus.textContent =
-        "Professor profile not found.";
+                                    link.textContent =
+                                        "Open Rate My Professor";
+                                } else {
+                                    // No direct profile found,
+                                    // show message and search link.
+                                    rmpStatus.textContent =
+                                        "Professor profile not found.";
 
-    link.textContent =
-        "Search Rate My Professors";
-}
+                                    link.textContent =
+                                        "Search Rate My Professors";
+                                }
 
-                                courseDiv.appendChild(link);
+                                courseDiv.appendChild(
+                                    link
+                                );
                             }
                         );
                     });
@@ -151,7 +171,7 @@ function showSearchLink(
         encodeURIComponent(professorName);
 
     statusElement.textContent =
-        "Direct profile not found.";
+        "Professor profile not found.";
 
     const link =
         document.createElement("a");
