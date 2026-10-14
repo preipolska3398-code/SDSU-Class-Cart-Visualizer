@@ -3,30 +3,38 @@
   "name": "Aztec Schedule Sync",
   "version": "1.0.0",
   "description": "A Chrome extension that helps SDSU students plan their schedules.",
+
   "action": {
     "default_popup": "popup.html",
     "default_title": "Aztec Schedule Sync"
   },
-  "permissions":[
+
+  "permissions": [
     "storage",
     "tabs",
     "activeTab"
   ],
-  "background":{
+
+  "background": {
     "service_worker": "background.js"
   },
+
   "host_permissions": [
-    "https://cmsweb.cms.sdsu.edu/*"
+    "https://cmsweb.cms.sdsu.edu/*",
+    "https://www.ratemyprofessors.com/*"
   ],
+
   "content_scripts": [
     {
       "matches": [
         "https://cmsweb.cms.sdsu.edu/*"
       ],
+
       "js": [
         "content.js"
-      ], 
-      "run_at": "document_idle" 
+      ],
+
+      "run_at": "document_idle"
     }
   ]
 }
