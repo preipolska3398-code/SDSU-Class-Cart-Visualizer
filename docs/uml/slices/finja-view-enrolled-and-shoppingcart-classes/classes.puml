@@ -1,0 +1,27 @@
+@startuml
+
+class Student {
+  - studentId: Long
+  - firstName: String
+  - lastName: String
+
+  + addClass(ClassCode: String): void
+  + viewClasses(): void
+}
+
+class Class {
+  - className: String
+  - instructor: String
+  - numberOfSeats: int
+  - openSeats: int
+  - schedule: String
+  - location: String
+
+  + getClassInfo(): String
+  + hasOpenSeats(): boolean
+}
+
+
+Student "0..*" -->  "0..*" Class : has
+
+@enduml
