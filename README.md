@@ -25,6 +25,10 @@ Tarran Thomas
 - `style.css` — popup styling
 - `manifest.json` — Chrome extension configuration and permissions
 
+## How It Works
+
+The extension gets the professor name from the SDSU page, searches Rate My Professors for that professor at SDSU, and links directly to the matching profile when possible. If no safe match is found, it provides the Rate My Professors search page instead.
+
 ## How to Install
 
 1. Download or clone the repository.
@@ -33,10 +37,6 @@ Tarran Thomas
 4. Click **Load unpacked**.
 5. Select the project folder.
 6. Open the SDSU shopping cart and click the extension.
-
-## How It Works
-
-The extension gets the professor name from the SDSU page, searches Rate My Professors for that professor at SDSU, and links directly to the matching profile when possible. If no safe match is found, it provides the Rate My Professors search page instead.
 
 ## Bugs/Improvements
 
