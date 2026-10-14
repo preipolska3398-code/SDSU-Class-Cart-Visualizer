@@ -40,5 +40,5 @@ The extension gets the professor name from the SDSU page, searches Rate My Profe
 
 ## Bugs/Improvements
 
--Sometimes when only the first initial of the professor is provided on the sdsu page, the search will fail in Rate My Professor.
--The extension only works for shopping cart not class search.
+- Sometimes when only the first initial of the professor is provided on the sdsu page, the search will fail in Rate My Professor.
+- The extension only works for shopping cart not class search.
