@@ -56,6 +56,25 @@ document.addEventListener("DOMContentLoaded", () => {
                             "Professor: " + course.professor;
 
                         courseDiv.appendChild(className);
+
+                        if (course.schedule) {
+                            const schedule = document.createElement("p");
+                            schedule.textContent = "Schedule: " + course.schedule;
+                            courseDiv.appendChild(schedule);
+                        }
+
+                        if (course.room) {
+                            const room = document.createElement("p");
+                            room.textContent = "Room: " + course.room;
+                            courseDiv.appendChild(room);
+                        }
+
+                        if (course.seats) {
+                            const seats = document.createElement("p");
+                            seats.textContent = "Seats: " + course.seats;
+                            courseDiv.appendChild(seats);
+                        }
+
                         courseDiv.appendChild(professor);
 
                         container.appendChild(courseDiv);

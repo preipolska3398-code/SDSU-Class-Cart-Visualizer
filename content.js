@@ -12,13 +12,38 @@ function getShoppingCartClasses() {
         const professorElement = document.getElementById(
             `DERIVED_REGFRM1_SSR_INSTR_LONG$${index}`
         );
+        const row = courseElement.closest("tr");
+        const headers = Array.from(
+            row?.closest("table")?.querySelectorAll("th") || []
+        );
+        const roomIndex = headers.findIndex((header) =>
+            /room|location/i.test(header.textContent)
+        );
+        const scheduleIndex = headers.findIndex((header) =>
+            /day|time|schedule/i.test(header.textContent)
+        );
+        const seatsIndex = headers.findIndex((header) =>
+            /seat|enrollment|capacity/i.test(header.textContent)
+        );
 
         classes.push({
             className: courseElement.textContent.trim(),
 
             professor: professorElement
                 ? professorElement.textContent.trim()
-                : "Professor not found"
+                : "Professor not found",
+
+            schedule: scheduleIndex >= 0
+                ? row.cells[scheduleIndex].textContent.trim()
+                : "",
+
+            seats: seatsIndex >= 0
+                ? row.cells[seatsIndex].textContent.trim()
+                : "",
+
+            room: roomIndex >= 0
+                ? row.cells[roomIndex].textContent.trim()
+                : ""
         });
     });
 
