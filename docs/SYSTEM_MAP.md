@@ -39,7 +39,7 @@ between different systems so it is difficult to display how our architecture dia
 TODO
 | ID | Candidate requirement | Type | Source | Status | Acceptance criterion |
 |---|---|---|---|---|---|
-|CR-1|---|---|---|---|---|
+|CR-1|The system shall convert instructor names formatted as "Last, First" into "First Last".|Functional|`background.js` → `cleanInstructorName()`|Confirmed|Input "Smith, John" returns "John Smith"|
 |CR-2|---|---|---|---|---|
 |CR-3|---|---|---|---|---|
 |CR-4|---|---|---|---|---|
