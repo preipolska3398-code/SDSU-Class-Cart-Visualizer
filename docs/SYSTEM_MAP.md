@@ -48,6 +48,7 @@ TODO
 # Part 6: Three Unit Test Cases
 TODO
 | ID | Requirement | Kind | Input | Expected output | Predicted result today |
+|---|---|---|---|---|---|
 |TC-1|CR-1|Positive|"Turing, Alan"|"Alan Turing"|Pass|
 |TC-2|CR-3|Boundary|sdsuName: "J Smith", rmpName: "John Smith"|true|Pass|
 |TC-3|CR-3|Negative|sdsuName: "J Smith", rmpName: "Adam Smith"|false|Fail|
