@@ -40,15 +40,15 @@ TODO
 | ID | Candidate requirement | Type | Source | Status | Acceptance criterion |
 |---|---|---|---|---|---|
 |CR-1|The system shall convert instructor names formatted as "Last, First" into "First Last".|Functional|`background.js` → `cleanInstructorName()`|Confirmed|Input "Smith, John" returns "John Smith"|
-|CR-2|---|---|---|---|---|
-|CR-3|---|---|---|---|---|
-|CR-4|---|---|---|---|---|
-|CR-5|---|---|---|---|---|
+|CR-2|The system shall suppress the Rate My Professor lookup process when the instructor name contains "to be announced".|Functional|`popup.js` → `DOM listener`|Confirmed|Course object with instructor "To Be Announced" does not trigger findRateMyProfessor message.|
+|CR-3|The system shall link directly to a Rate My Professor search page when a single professor initial matches multiple full names.|Functional|`background.js` → `namesMatch()`|Unconfirmed|Input sdsuName: "J Smith" against candidates "John Smith" and "Jane Smith" returns search URL instead of picking one.|
+|CR-4|The system shall check token expiration before sending shopping cart request data.|Non-functional (security)|`content.js` → `onMessage listener`|Suspected bug|Request with an expired session token returns 401 unauthenticated error.|
+|CR-5|The system shall extract class information from the SDSU class search page.|Functional|`manifest.json` & `README.md` (Bugs section notes it only works on shopping cart)|Suspected bug|Navigating to SDSU Class Search DOM populates course list array with length > 0.|
 
 # Part 6: Three Unit Test Cases
 TODO
 | ID | Requirement | Kind | Input | Expected output | Predicted result today |
 |---|---|---|---|---|---|
-|---|---|---|---|---|---|
-|---|---|---|---|---|---|
-|---|---|---|---|---|---|
+|TC-1|CR-1|Positive|"Turing, Alan"|"Alan Turing"|Pass|
+|TC-2|CR-3|Boundary|sdsuName: "J Smith", rmpName: "John Smith"|true|Pass|
+|TC-3|CR-3|Negative|sdsuName: "J Smith", rmpName: "Adam Smith"|false|Fail|
