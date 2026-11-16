@@ -69,10 +69,10 @@
 3. Click the Aztec Schedule Sync icon and wait 10 seconds
 
 **Expected result:** The popup shows a message telling me to log in to SDSU. It does not show "No classes found in shopping cart."
-**Actual result:**
-**Status:**
-**Severity:**
-**V or V:**
+**Actual result:** After signing out, https://cmsweb.cms.sdsu.edu/ redirected to https://my.sdsu.edu/ (the my.SDSU login page). The popup showed "Could not connect to SDSU page." It didn't tell the user to log in to SDSU.
+**Status:** Fail
+**Severity:** Minor
+**V or V:** Verification
 **GitHub Issue:**
 
 ---
