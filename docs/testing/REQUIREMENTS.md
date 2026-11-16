@@ -69,12 +69,6 @@ RULES
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| NFR-JS-01 | (Maintainability / Robustness) `getShoppingCartClasses()` shall locate the schedule, room, and seats columns dynamically by matching table header (`<th>`) text patterns (`/day\|time\|schedule/i`, `/room\|location/i`, `/seat\|enrollment\|capacity/i`) rather than hardcoded column indices, so reordering columns does not break extraction. | Confirmed | New |
-
-### Non-Functional Requirements
-
-| ID | Requirement | Status | From Part 5 |
-|---|---|---|---|
 | NFR-JS-01 | (Performance) `getShoppingCartClasses()` shall scrape and return course data for a shopping cart of up to 10 courses in under 100 milliseconds. | Confirmed | New |
 | NFR-JS-02 | (Maintainability / Robustness) `getShoppingCartClasses()` shall locate the schedule, room, and seats columns dynamically by matching table header (`<th>`) text patterns ('/day|time|schedule/i', `/room|location/i`, `/seat|enrollment|capacity/i`) rather than hardcoded column indices, so reordering columns does not break extraction. | Confirmed | New |
 
