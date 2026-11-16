@@ -53,7 +53,7 @@ Put a Test ID next to each type. Team minimum: all 7.
 
 ## Validation Findings
 
-A Validation finding means the system does what the requirement says, but the requirement does not serve the Stakeholder Goal.
+A Validation finding means the system does what the requirement says, but the requirement does not serve the Stakeholder Goal. Remember the alphabetical leaderboard.
 
 | Requirement ID | Goal it fails | Why | Issue # |
 |---|---|---|---|
