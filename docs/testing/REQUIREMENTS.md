@@ -43,7 +43,7 @@ RULES
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| NFR-CC-02 | (Security, least privilege) Every permission listed in manifest.json shall be used by at least one line of the extension's code. | Suspected bug | New |
+| NFR-CC-01 | (Security, least privilege) Every permission listed in manifest.json shall be used by at least one line of the extension's code. | Suspected bug | New |
 
 ### Example of a Good Rewrite
 
