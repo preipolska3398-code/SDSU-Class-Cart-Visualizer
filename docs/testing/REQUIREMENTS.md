@@ -47,13 +47,6 @@ RULES
 | NFR-CC-01 | (Security) Requests the extension sends to ratemyprofessors.com shall contain no SDSU cookies and no shopping cart data other than the professor name. | Confirmed | CR-4 (Suspected bug): The system shall check token expiration before sending shopping cart request data.|
 | NFR-CC-02 | (Security, least privilege) Every permission listed in manifest.json shall be used by at least one line of the extension's code. | Suspected bug | New |
 
-### Example of a Good Rewrite
-
-| ID | Requirement | Status | From Part 5 |
-|---|---|---|---|
-| REQ-ZS-04 | Given an instructor name ie. "J Smith" and lookup results containing boht "John Smith" and "Jane Smith", the popup should display "Professor profile not found", and a "Search Rate My Professors" link to the SDSU RMP serch results for "J Smith" rather than directly to either professor. | Suspected bug | CR-3: The system shall link directly to a Rate My Professor search page when a single professor initial matches multiple full names. |
-| NFR-MG-01 | The profile page loads in under 2 seconds with 100 profiles in the database. | Confirmed | New |
-
 ---
 
 ## Section: Interactions/Ouputs (Zachary Soriano)
