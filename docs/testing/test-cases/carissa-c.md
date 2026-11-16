@@ -84,7 +84,7 @@
 **Traces to:** REQ-CC-03
 **Test type:** System
 **Preconditions:** Extension loaded from main (c205220). Logged into SDSU
-**Test data:** Class Search for subject CS, current term
+**Test data:** Class Search for subject CS, Fall 2026 (results page listed at least 1 class with an instructor)
 
 **Steps:**
 1. In SDSU, open Class Search and search for subject CS in the current term (Fall 2026)
