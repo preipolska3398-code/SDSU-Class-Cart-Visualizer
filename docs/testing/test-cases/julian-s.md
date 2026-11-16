@@ -78,7 +78,7 @@
 **From Part 6:** New
 **Written by:** Julian Saquic
 **Title:** Extract reordered shopping cart table columns dynamically by header text
-**Traces to:** NFR-JS-01
+**Traces to:** NFR-JS-02
 **Test type:** Integration
 **Preconditions:** SDSU shopping cart table DOM where column order is reversed (`Seats`, `Room`, `Schedule`, `Class`) compared to standard layout.
 **Test data:** Table headers `<th>Seats</th><th>Room</th><th>Day/Time</th><th>Class</th>` with row values `"12"`, `"EBA 341"`, `"TuTh 11:00AM"`, and `"STAT 250"` (`id="DERIVED_SSR_FL_SSR_DESCR80$0"`).
