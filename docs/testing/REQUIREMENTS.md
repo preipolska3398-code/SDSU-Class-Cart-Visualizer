@@ -55,28 +55,29 @@ RULES
 
 ---
 
-## Section: [Your Area] ([Your Name])
+## Section: Input (Julian Saquic)
 
 ### Stakeholder Goals
 
 | ID | Stakeholder | Goal |
 |---|---|---|
-| | | |
+| G-JS-01 | SDSU student planning classes | Have my course names, schedules, rooms, seats, and instructor names automatically captured and cleaned from my SDSU shopping cart without typing or manually reformatting them. |
 
 ### Functional Requirements
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
+| REQ-JS-01 | When `content.js` receives the `{ action: "requestData" }` message on an SDSU shopping cart page containing `n` course rows (`[id^="DERIVED_SSR_FL_SSR_DESCR80$"]`), `getShoppingCartClasses()` shall return an array of `n` objects, each containing trimmed `className`, `professor`, `schedule`, `room`, and `seats` strings. | Confirmed | New |
+| REQ-JS-02 | When a shopping cart course row is missing its instructor element (`DERIVED_REGFRM1_SSR_INSTR_LONG$i`) or optional table columns (schedule, room, or seats), `getShoppingCartClasses()` shall assign `"Professor not found"` to `professor` and `""` to any missing optional column without throwing an error. | Confirmed | New |
+| REQ-JS-03 | When an instructor name is extracted in `"Last, First"` format (e.g., `"Turing, Alan"`), `cleanInstructorName()` shall normalize it to `"First Last"` (`"Alan Turing"`) with single spaces before querying Rate My Professors. | Confirmed | New |
+| REQ-JS-04 | When an instructor name in the shopping cart is `"To Be Announced"` (case-insensitive) or empty, the system shall skip sending a `findRateMyProfessor` lookup request for that course. | Confirmed | New |
 
 ### Non-Functional Requirements
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| | | | |
-
+| NFR-JS-01 | (Performance) `getShoppingCartClasses()` shall scrape and return course data for a shopping cart of up to 10 courses in under 100 milliseconds. | Confirmed | New |
+| NFR-JS-02 | (Maintainability / Robustness) `getShoppingCartClasses()` shall locate the schedule, room, and seats columns dynamically by matching table header (`<th>`) text patterns ('/day|time|schedule/i', `/room|location/i`, `/seat|enrollment|capacity/i`) rather than hardcoded column indices, so reordering columns does not break extraction. | Confirmed | New |
 ---
 
 ## Section: [Your Area] ([Your Name])
