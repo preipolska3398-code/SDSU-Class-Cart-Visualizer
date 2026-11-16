@@ -116,10 +116,10 @@
 4. Write down the number of matches for each
 
 **Expected result:** Each permission has at least 1 match in the extension's.js files (background.js, content.js, popup.js)
-**Actual result:**
-**Status:**
-**Severity:**
-**V or V:**
+**Actual result:** "storage" is listed in manifest.json but has 0 matches for chrome.storage in background.js, content.js, and popup.js. "tabs" has 2 matches in popup.js (chrome.tabs.query and chrome.tabs.sendMessage). The extension requests a permission it never uses
+**Status:** Fail
+**Severity:** Minor
+**V or V:** Verification
 **GitHub Issue:**
 
 ---
