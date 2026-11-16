@@ -46,10 +46,10 @@
 3. Read the popup text
 
 **Expected result:** The popup shows "Could not connect to SDSU page." and no class list or Rate My Professors link
-**Actual result:**
-**Status:**
-**Severity:**
-**V or V:**
+**Actual result:** On https://www.google.com, the popup showed exactly "Could not connect to SDSU page." No class list or Rate My Professors link appeared
+**Status:** Pass
+**Severity:** N/A
+**V or V:** N/A
 **GitHub Issue:**
 
 ---
