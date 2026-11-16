@@ -23,11 +23,11 @@
 4. Click the Rate My Professors link under the first class
 
 **Expected result:** The popup lists the same number of classes as the cart page, each with "Class:" and "Professor:". Every class with an assigned professor shows either "Open Rate My Professor" or "Search Rate My Professors". Clicking the link opens a ratemyprofessors.com page in a new tab
-**Actual result:**
-**Status:** (Pass / Fail)
-**Severity:** (Critical / Major / Minor, Fail only)
-**V or V:** (Verification / Validation, Fail only)
-**GitHub Issue:** (#number, Fail only)
+**Actual result:** The popup listed both classes (2 of 2) with "Class:" and "Professor:". Both showed "Open Rate My Professor". Clicking both the CS 420 and PHIL 339 link opened the correct Rate My Professors page in a new tab
+**Status:** Pass
+**Severity:** N/A
+**V or V:** N/A
+**GitHub Issue:** N/A
 
 ---
 
