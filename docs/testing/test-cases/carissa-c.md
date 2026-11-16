@@ -50,7 +50,7 @@
 **Status:** Pass
 **Severity:** N/A
 **V or V:** N/A
-**GitHub Issue:**
+**GitHub Issue:** N/A
 
 ---
 
@@ -92,10 +92,10 @@
 3. Click the Aztec Schedule Sync icon and wait 10 seconds
 
 **Expected result:** The popup lists at least 1 class from the search results, with its professor name
-**Actual result:**
-**Status:**
-**Severity:**
-**V or V:**
+**Actual result:** With CS search results showing on the Class Search page, the popup showed "No classes found in shopping cart." No classes or professor names were listed
+**Status:** Fail
+**Severity:** Major
+**V or V:** Validation
 **GitHub Issue:**
 
 ---
