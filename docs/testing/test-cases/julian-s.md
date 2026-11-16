@@ -70,7 +70,7 @@
 **Status:** Fail
 **Severity:** Minor
 **V or V:** Verification
-**GitHub Issue:** #1
+**GitHub Issue:** #65
 
 ---
 
