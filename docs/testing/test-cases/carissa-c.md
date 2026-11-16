@@ -73,7 +73,7 @@
 **Status:** Fail
 **Severity:** Minor
 **V or V:** Verification
-**GitHub Issue:**
+**GitHub Issue:** #69
 
 ---
 
@@ -96,7 +96,7 @@
 **Status:** Fail
 **Severity:** Major
 **V or V:** Validation
-**GitHub Issue:**
+**GitHub Issue:** #68
 
 ---
 
@@ -111,8 +111,8 @@
 
 **Steps:**
 1. Open manifest.json on GitHub and list every entry under "permissions"
-2. On the repo page, press "/" and search the repo code for "chrome.storage"
-3. Search the repo code for "chrome.tabs"
+2. Open background.js, content.js, and popup.js on GitHub and use Ctrl+F to search each for "chrome.storage"
+3. Use Ctrl+F to search each file for "chrome.tabs"
 4. Write down the number of matches for each
 
 **Expected result:** Each permission has at least 1 match in the extension's.js files (background.js, content.js, popup.js)
@@ -120,6 +120,6 @@
 **Status:** Fail
 **Severity:** Minor
 **V or V:** Verification
-**GitHub Issue:**
+**GitHub Issue:** #67
 
 ---
