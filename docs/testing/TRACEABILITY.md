@@ -33,9 +33,9 @@ Fill this in **after** everyone's work is merged. One row per requirement.
 
 List any requirement with no test, any test with no requirement, and any Part 5 requirement or Part 6 test that nobody brought over. Write "None" if there are none.
 
-- **Missing teammate section (`MA`):** Mehla Abebe (`Viewing list/dashboard`) has not yet added her section to `REQUIREMENTS.md` or uploaded her test case file (`mehla-a.md`)[cite: 18].
-- **Requirements without direct test cases:** `NFR-CC-01` (`CC-05` references `NFR-CC-01` in its `Traces to` field, though its title/steps test `NFR-CC-02` unused permissions)[cite: 18, 19], `REQ-JS-02`[cite: 18], `NFR-JS-01`[cite: 18], `NFR-ZS-01`[cite: 18], and `REQ-ZS-04` (`ZS-03` tests the multiple-initial-match behavior but lists `REQ-ZS-02` in its `Traces to` field)[cite: 17, 18].
-- **Part 5 requirements & Part 6 tests:** All 5 Part 5 candidate requirements (`CR-1` through `CR-5`) and all 3 Part 6 unit tests (`TC-1` through `TC-3`) were carried over and upgraded[cite: 16, 17, 18].
+- **Missing teammate section (`MA`):** Mehla Abebe (`Viewing list/dashboard`) has not yet added her section to `REQUIREMENTS.md` or uploaded her test case file (`mehla-a.md`).
+- **Requirements without direct test cases:** `NFR-CC-01` (`CC-05` references `NFR-CC-01` in its `Traces to` field, though its title/steps test `NFR-CC-02` unused permissions), `REQ-JS-02`, `NFR-JS-01`, `NFR-ZS-01`, and `REQ-ZS-04` (`ZS-03` tests the multiple-initial-match behavior but lists `REQ-ZS-02` in its `Traces to` field).
+- **Part 5 requirements & Part 6 tests:** All 5 Part 5 candidate requirements (`CR-1` through `CR-5`) and all 3 Part 6 unit tests (`TC-1` through `TC-3`) were carried over and upgraded.
 
 ## Test Type Coverage
 
@@ -53,15 +53,15 @@ Put a Test ID next to each type. Team minimum: all 7.
 
 ## Validation Findings
 
-A Validation finding means the system does what the requirement says, but the requirement does not serve the Stakeholder Goal. Remember the alphabetical leaderboard.
+A Validation finding means the system does what the requirement says, but the requirement does not serve the Stakeholder Goal.
 
 | Requirement ID | Goal it fails | Why | Issue # |
 |---|---|---|---|
-| REQ-CC-03 | G-CC-01 | The extension only scrapes the SDSU Shopping Cart DOM (`DERIVED_SSR_FL_SSR_DESCR80$`), so when a student browses courses on the SDSU Class Search results page to compare professors before adding classes to their cart, the popup reports "No classes found in shopping cart"[cite: 3, 19]. | #68 |
+| REQ-CC-03 | G-CC-01 | The extension only scrapes the SDSU Shopping Cart DOM (`DERIVED_SSR_FL_SSR_DESCR80$`), so when a student browses courses on the SDSU Class Search results page to compare professors before adding classes to their cart, the popup reports "No classes found in shopping cart". | #68 |
 
 **If you found none,** explain in 2 to 3 sentences why every requirement truly serves its Goal:
 
-> N/A — Validation finding documented above (`CC-04` / `#68`)[cite: 19].
+> N/A — Validation finding documented above (`CC-04` / `#68`).
 
 ## Summary
 
@@ -79,4 +79,4 @@ A Validation finding means the system does what the requirement says, but the re
 
 **In one sentence, would you ship this system today? Why or why not?**
 
-> We would not ship this system today because while core shopping cart extraction works for unambiguous full names, multiple initial-only instructor lookups link directly to the wrong Rate My Professors profile (`#64`), missing instructors still trigger bogus searches (`#65`), unused permissions violate least privilege (`#67`), and the extension fails on the Class Search page (`#68`) and logged-out states (`#69`)[cite: 16, 17, 19].
+> We would not ship this system today because while core shopping cart extraction works for unambiguous full names, multiple initial-only instructor lookups link directly to the wrong Rate My Professors profile (`#64`), missing instructors still trigger bogus searches (`#65`), unused permissions violate least privilege (`#67`), and the extension fails on the Class Search page (`#68`) and logged-out states (`#69`).
