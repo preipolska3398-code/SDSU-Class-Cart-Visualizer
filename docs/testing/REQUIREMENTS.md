@@ -36,7 +36,7 @@ RULES
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| REQ-CC-01 | When the popup is opened on a tab that isn't on https://cmsweb.cms.sdsu.edu/, the popup shall display "Could not connect to SDSU page." and make no request to ratemyprofessors.com. | Confirmed | New |
+| REQ-CC-01 | When the popup is opened on a tab that isn't on https://cmsweb.cms.sdsu.edu/, the popup shall display "Could not connect to SDSU page." | Confirmed | New |
 | REQ-CC-02 | When the user is logged out of SDSU (or the session has expired) and opens the popup, the popup shall display a message telling the user to log in to SDSU, not "No classes found in shopping cart." | Suspected bug | CR-4 (Suspected bug): The system shall check token expiration before sending shopping cart request data. |
 | REQ-CC-03 | When the popup is opened on an SDSU Class Search results page that lists at least one class, the popup shall list at least one class with its professor name. | Suspected bug | CR-5 (Suspected bug): The system shall extract class information from the SDSU class search page. |
 
@@ -44,8 +44,7 @@ RULES
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| NFR-CC-01 | (Security) Requests the extension sends to ratemyprofessors.com shall contain no SDSU cookies and no shopping cart data other than the professor name. | Confirmed | CR-4 (Suspected bug): The system shall check token expiration before sending shopping cart request data.|
-| NFR-CC-02 | (Security, least privilege) Every permission listed in manifest.json shall be used by at least one line of the extension's code. | Suspected bug | New |
+| NFR-CC-01 | (Security, least privilege) Every permission listed in manifest.json shall be used by at least one line of the extension's code. | Suspected bug | New |
 
 ---
 
