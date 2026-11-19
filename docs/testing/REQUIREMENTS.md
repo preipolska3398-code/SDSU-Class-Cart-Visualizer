@@ -1,16 +1,15 @@
-# Testable Requirements: [Project Name]
+# Testable Requirements: [SDSU Class Cart Visualizer ]
 
-**Team number:** [XX]
-**Inherited from:** Team [XX]
+**Team number:** [14]
+**Inherited from:** Team [15]
 
 ## Who Owns What
 
 | Area of the system | Owner | ID prefix |
-|---|---|---|
-| [example: Accounts and login] | [name] | [initials, like MG] |
-| | | |
-| | | |
-| | | |
+| Viewing List/ Dashboard | Mehla Abebe |MA|
+| Input| Julian Saquic | JS |
+| Interaction/Output | Zachary Soriano |ZS|
+| Session Permissions| Carrisa Chen | CC|
 
 <!--
 RULES
@@ -23,27 +22,27 @@ RULES
 
 ---
 
-## Section: [Your Area] ([Your Name])
+## Section: [Viewing List/ Dashboard ] ([Mehla Abebe])
 
 ### Stakeholder Goals
 
 | ID | Stakeholder | Goal |
 |---|---|---|
-| G-XX-01 | | |
+| G-MA-01 | SDSU Student | An SDSU Student should be able to see a pop-up summary of the classes in their cart with a RateMyProfessor link.|
 
 ### Functional Requirements
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| REQ-XX-01 | | | |
-| REQ-XX-02 | | | |
-| REQ-XX-03 | | | |
+| REQ-MA-01 |The system shall display hybrid schedules in a list format rather than in a continuous format.  | Suspected Bug | New|
+| REQ-MA-02 |The system shall convert instructor names formatted as "Last, First" into "First Last".|Confirmed| CR-1|
+| REQ-MA-03 | The system shall display hybrid status for classes that have online and in-person schedule information. | Suspected Bug | New |
 
 ### Non-Functional Requirements
 
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
-| NFR-XX-01 | | | |
+| NFR-MA-01 | The system shall display the pop-up cart visualizer on windows and macOS desktop devices| Confirmed | New |
 
 ### Example of a Good Rewrite
 
