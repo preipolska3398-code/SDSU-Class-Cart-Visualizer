@@ -18,6 +18,31 @@ HOW TO USE THIS FILE
 
 ---
 
+**Test ID: ZS-06**
+**From Part 6: New**
+**Written by: Zachary Soriano**
+**Title: SDSU surname matches a component of a unique RMP hyphenated surname**
+**Traces to: G-ZS-01**
+**Test type: Integration / Boundary Value**
+**Preconditions:Load background.js for chrome.runtime.onMessage.addListener. Supply one RMP Teacher candidate.**
+**Test data: SDSU instructor = "Jorge Hernandez"; RMP firstName = "Jorge", lastName = "Hernandez-Calderon"**
+
+**Steps:**
+1. Have a class with Jorge Hernandez-Calderon in the cart
+2. Open the extension
+3. Identify the class with Jorge, and sees that it fails to identify him.
+
+**Expected result: Return a RMP link to Jorge Hernandez-Calderon**
+**Actual result: Professor not found**
+**Status: Fail**
+**Severity: Major (PR4 severity: Medium; proposed priority: Medium)**
+**V or V: Validation**
+**GitHub Issue: Pending verification; no confirmed Issue URL recorded.**
+**GitHub Issue: #76**
+
+
+---
+
 **Test ID: ZS-01**
 **From Part 6: TC-2** (old test number, or New)
 **Written by: Zachary Soriano**
