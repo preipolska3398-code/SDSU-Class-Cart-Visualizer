@@ -26,7 +26,7 @@ Fill this in **after** everyone's work is merged. One row per requirement.
 | REQ-JS-04 | New | Julian Saquic | JS-03 | 1 Fail | #65 |
 | NFR-JS-01 | New | Julian Saquic | None | Untested | None |
 | NFR-JS-02 | New | Julian Saquic | JS-04 | 1 Pass | None |
-| G-ZS-01 | New | Zachary Soriano | ZS-05 | 1 Pass | None |
+| G-ZS-01 | New | Zachary Soriano | ZS-05, ZS-06 | 1 Pass, 1 Fail | #76 |
 | REQ-ZS-01 | CR-2 | Zachary Soriano | ZS-04 | 1 Pass | None |
 | REQ-ZS-02 | New | Zachary Soriano | ZS-01, ZS-02, ZS-03 | 2 Pass, 1 Fail | #64 |
 | REQ-ZS-03 | New | Zachary Soriano | ZS-05 | 1 Pass | None |
@@ -57,10 +57,10 @@ Put a Test ID next to each type. Team minimum: all 7.
 | Test type | Test ID |
 |---|---|
 | Unit | JS-01,  MA-03, ZS-01, ZS-04 |
-| Integration | JS-04, MA-02,  ZS-03 |
+| Integration | JS-04, MA-02, ZS-03, ZS-06 |
 | System (E2E) | CC-04, MA-04 |
 | Acceptance | CC-01, JS-05,  MA-01, ZS-05 |
-| Boundary Value | JS-02 |
+| Boundary Value | JS-02, ZS-06 |
 | Negative | CC-02, CC-03, JS-03, ZS-02 |
 | Security | CC-05 |
 
@@ -91,9 +91,9 @@ A Validation finding means the system does what the requirement says, but the re
 | New requirements added | 17 (`4 Goals`, `8 REQs`, `5 NFRs` across CC, JS, ZS, MA) |
 | Part 6 tests upgraded (out of 3) | 3 (`TC-1` → `JS-01`, `TC-2` → `ZS-01`, `TC-3` → `ZS-02`) |
 | Total requirements | 22 (`4 Goals`, `13 REQs`, `5 NFRs`) |
-| Total test cases | 19 (`5 CC`, `5 JS`, `5 ZS`, `4 MA`) |
+| Total test cases | 20 (`5 CC`, `5 JS`, `6 ZS`, `4 MA`) |
 | Passed | 12 (`CC-01`, `CC-02`, `JS-01`, `JS-02`, `JS-04`, `JS-05`, `ZS-01`, `ZS-02`, `ZS-04`, `ZS-05`, `MA-01`, `Ma-04`) |
-| Failed | 7 (`CC-03`, `CC-04`, `CC-05`, `JS-03`, `ZS-03`, `MA-03`, `MA-02`) |
+| Failed | 8 (`CC-03`, `CC-04`, `CC-05`, `JS-03`, `ZS-03`, `ZS-06`, `MA-03`, `MA-02`) |
 | Issues opened | 7 (`#64`, `#65`, `#67`, `#68`, `#69`, `#72`, `#73`) |
 | Critical issues | 0 (`0 Critical`; `2 Major/High` — `#64`, `#68`; `5 Minor` — `#65`, `#67`, `#69`, `#72`, `#73` ) |
 
