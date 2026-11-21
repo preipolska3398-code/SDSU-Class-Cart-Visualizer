@@ -1,9 +1,7 @@
 # Testable Requirements: Aztec Schedule Sync
 
-
 **Team number:** 14
 **Inherited from:** Team 13
-
 
 ## Who Owns What
 
@@ -14,7 +12,6 @@
 | Input | Julian Saquic | JS |
 | Viewing list/dashboard | Mehla Abebe | MA |
 | Interactions/output | Zachary Soriano | ZS |
-
 
 <!--
 RULES
@@ -29,10 +26,7 @@ RULES
 ---
 
 
-
-
 ## Section: Sessions and Permissions (Carissa Chen)
-
 
 ### Stakeholder Goals
 
@@ -40,7 +34,6 @@ RULES
 | ID | Stakeholder | Goal |
 |---|---|---|
 | G-CC-01 | SDSU student planning classes | See professor ratings for my shopping cart classes using my existing SDSU login, without my SDSU account data leaving my browser.|
-
 
 ### Functional Requirements
 
@@ -52,19 +45,13 @@ RULES
 | REQ-CC-03 | When the popup is opened on an SDSU Class Search results page that lists at least one class, the popup shall list at least one class with its professor name. | Suspected bug | CR-5 (Suspected bug): The system shall extract class information from the SDSU class search page. |
 
 
-### Non-Functional Requirements
-
-
 | ID | Requirement | Status | From Part 5 |
 |---|---|---|---|
 | NFR-CC-01 | (Security, least privilege) Every permission listed in manifest.json shall be used by at least one line of the extension's code. | Suspected bug | New |
 
-
 ---
 
-
 ## Section: Input (Julian Saquic)
-
 
 ### Stakeholder Goals
 
@@ -72,7 +59,6 @@ RULES
 | ID | Stakeholder | Goal |
 |---|---|---|
 | G-JS-01 | SDSU student planning classes | Have my course names, schedules, rooms, seats, and instructor names automatically captured and normalized from my SDSU shopping cart without manually typing or reformatting them. |
-
 
 ### Functional Requirements
 
@@ -84,7 +70,6 @@ RULES
 | REQ-JS-03 | When a shopping cart course row is missing its instructor element (`DERIVED_REGFRM1_SSR_INSTR_LONG$i`) or optional table columns (schedule, room, or seats), `getShoppingCartClasses()` shall assign `"Professor not found"` to `professor` and `""` to any missing optional column without throwing an error. | Confirmed | New |
 | REQ-JS-04 | When an extracted instructor name is empty, `"To Be Announced"` (case-insensitive), or `"Professor not found"`, the system shall suppress the `findRateMyProfessor` lookup request for that course. | Suspected bug | New |
 
-
 ### Non-Functional Requirements
 
 
@@ -93,12 +78,41 @@ RULES
 | NFR-JS-01 | (Performance) `getShoppingCartClasses()` shall scrape and return course data for a shopping cart of up to 10 courses in under 100 milliseconds. | Confirmed | New |
 | NFR-JS-02 | (Maintainability / Robustness) `getShoppingCartClasses()` shall locate the schedule, room, and seats columns dynamically by matching table header (`<th>`) text patterns ('/day|time|schedule/i', `/room|location/i`, `/seat|enrollment|capacity/i`) rather than hardcoded column indices, so reordering columns does not break extraction. | Confirmed | New |
 
+---
+
+## Section: Interactions/Ouputs (Zachary Soriano)
+
+### Stakeholder Goals
+
+
+|---|---|---|
+| G-ZS-01 | SDSU student | View shopping cart classes and access assigned professor's RMP profile without manually searching for each instructor |
+
+### Functional Requirements
+
+
+|---|---|---|---|
+| REQ-ZS-01 | When a course's instructor name contains "to be announced" ignoring caps, the popup should display course infromation without trying to send a request for professor's RMP link for that course| Confirmed | CR2: The system shall suppress the Rate My Professor lookup process when the instructor name contains "to be announced". |
+| REQ-ZS-02 | When a professor lookup returns a url comtaining /professor/, the popup should display an Open Rate My Professor link pointing to the url. Selecting the link opens the link in a new tab| Confirmed | New |
+| REQ-ZS-03 | When a lookup returns a search URL, returns no url, or reports a messaging error, the popup should display: "Professor profile not found", and a "Search Rate My Professors" linl which when opened should open the SDSU RMP search URL.| Confirmed | New |
+
+### Non-Functional Requirements
+
+
+| ID | Requirement | Status | From Part 5 |
+|---|---|---|---|
+| NFR-ZS-01 | Every rmp link opened shall use rel="noopener nonreferrer" so that the destination page cannot acces the originating winodw through window.opener and gets no reference information| Confirmed | New |
+
+### Example of a Good Rewrite
+
+
+| ID | Requirement | Status | From Part 5 |
+|---|---|---|---|
+| REQ-ZS-04 | Given an instructor name ie. "J Smith" and lookup results containing boht "John Smith" and "Jane Smith", the popup should display "Professor profile not found", and a "Search Rate My Professors" link to the SDSU RMP serch results for "J Smith" rather than directly to either professor. | Suspected bug | CR-3: The system shall link directly to a Rate My Professor search page when a single professor initial matches multiple full names. |
 
 ---
 
-
 ## Section: Viewing List/ Dashboard (Mehla Abebe)
-
 
 ### Stakeholder Goals
 
@@ -121,46 +135,13 @@ RULES
 
 | ID | Requirement | Status | From Part 5 |
 | NFR-MA-01 | The system shall display the pop-up cart visualizer on windows and macOS desktop devices| Confirmed | New |
----
-
-
-## Section: Interactions/Ouputs (Zachary Soriano)
-
-
-### Stakeholder Goals
-
-
-| ID | Stakeholder | Goal |
-|---|---|---|
-| G-ZS-01 | SDSU student | View shopping cart classes and access assigned professor's RMP profile without manually searching for each instructor |
-
-
-### Functional Requirements
-
-
-| ID | Requirement | Status | From Part 5 |
-|---|---|---|---|
-| REQ-ZS-01 | When a course's instructor name contains "to be announced" ignoring caps, the popup should display course infromation without trying to send a request for professor's RMP link for that course| Confirmed | CR2: The system shall suppress the Rate My Professor lookup process when the instructor name contains "to be announced". |
-| REQ-ZS-02 | When a professor lookup returns a url comtaining /professor/, the popup should display an Open Rate My Professor link pointing to the url. Selecting the link opens the link in a new tab| Confirmed | New |
-| REQ-ZS-03 | When a lookup returns a search URL, returns no url, or reports a messaging error, the popup should display: "Professor profile not found", and a "Search Rate My Professors" linl which when opened should open the SDSU RMP search URL.| Confirmed | New |
-
-
-### Non-Functional Requirements
-
-
-| ID | Requirement | Status | From Part 5 |
-|---|---|---|---|
-| NFR-ZS-01 | Every rmp link opened shall use rel="noopener nonreferrer" so that the destination page cannot acces the originating winodw through window.opener and gets no reference information| Confirmed | New |
-
-
-### Example of a Good Rewrite
-
-
-| ID | Requirement | Status | From Part 5 |
-|---|---|---|---|
-| REQ-ZS-04 | Given an instructor name ie. "J Smith" and lookup results containing boht "John Smith" and "Jane Smith", the popup should display "Professor profile not found", and a "Search Rate My Professors" link to the SDSU RMP serch results for "J Smith" rather than directly to either professor. | Suspected bug | CR-3: The system shall link directly to a Rate My Professor search page when a single professor initial matches multiple full names. |
-
 
 ---
+
+
+
+
+
+
 
 

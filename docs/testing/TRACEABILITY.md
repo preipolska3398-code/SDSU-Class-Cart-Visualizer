@@ -26,19 +26,17 @@ Fill this in **after** everyone's work is merged. One row per requirement.
 | REQ-JS-04 | New | Julian Saquic | JS-03 | 1 Fail | #65 |
 | NFR-JS-01 | New | Julian Saquic | None | Untested | None |
 | NFR-JS-02 | New | Julian Saquic | JS-04 | 1 Pass | None |
-| G-MA-01 | New | Mehla Abebe| MA-01 | 1 Pass| None |
-| REQ-MA-01 | New | Mehla Abebe| MA-03| 1 Fail| #73 |
-| REQ-MA-02 |CR-1 |Mehla Abebe| None | Untested| None |
-| REQ-MA-03 | New  | Mehla Abebe| MA-02| 1 Fail| #72 |
-| NFR-MA-01 | New | Mehla Abebe| MA-04 | 1 Pass| None |
 | G-ZS-01 | New | Zachary Soriano | ZS-05 | 1 Pass | None |
 | REQ-ZS-01 | CR-2 | Zachary Soriano | ZS-04 | 1 Pass | None |
 | REQ-ZS-02 | New | Zachary Soriano | ZS-01, ZS-02, ZS-03 | 2 Pass, 1 Fail | #64 |
 | REQ-ZS-03 | New | Zachary Soriano | ZS-05 | 1 Pass | None |
 | NFR-ZS-01 | New | Zachary Soriano | None | Untested | None |
 | REQ-ZS-04 | CR-3 | Zachary Soriano | None | Untested | None |
- 
-
+| G-MA-01 | New | Mehla Abebe| MA-01 | 1 Pass| None |
+| REQ-MA-01 | New | Mehla Abebe| MA-03| 1 Fail| #73 |
+| REQ-MA-02 |CR-1 |Mehla Abebe| None | Untested| None |
+| REQ-MA-03 | New  | Mehla Abebe| MA-02| 1 Fail| #72 |
+| NFR-MA-01 | New | Mehla Abebe| MA-04 | 1 Pass| None |
 
 ## Gaps
 
