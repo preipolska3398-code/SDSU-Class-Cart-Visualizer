@@ -51,25 +51,25 @@ async function findRateMyProfessor(instructor) {
 
     const html = await response.text();
 
-    const professorUrl =
-        findMatchingProfessor(html, cleanName);
+    const matches = findMatchingProfessors(html, cleanName);
 
     // professor page found
-    if (professorUrl) {
+    if (matches.length === 1) {
         return {
             ok: true,
             direct: true,
             instructor: cleanName,
-            url: professorUrl
+            url: matches[0].url
         };
     }
 
-    // No match found, so use the search page instead
+    // Let the popup list ambiguous matches, or fall back to search if empty.
     return {
         ok: true,
         direct: false,
         instructor: cleanName,
-        url: searchUrl
+        url: searchUrl,
+        matches
     };
 }
 
@@ -101,7 +101,7 @@ function cleanInstructorName(name) {
 }
 
 
-function findMatchingProfessor(html, sdsuProfessorName) {
+function findMatchingProfessors(html, sdsuProfessorName) {
     const startMarker = "window.__RELAY_STORE__ = ";
     const endMarker = "window.process = {}";
 
@@ -115,7 +115,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
         endIndex <= startIndex
     ) {
         console.log("Could not find RMP relay data.");
-        return null;
+        return [];
     }
 
     // Pull out just the JSON stored in __RELAY_STORE__
@@ -143,7 +143,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
             error
         );
 
-        return null;
+        return [];
     }
 
     const candidates = [];
@@ -185,7 +185,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
     /*
         Compare the SDSU professor with each RMP professor.
     */
-    const matches = new Set();
+    const matches = new Map();
     for (const candidate of candidates) {
         const rmpName =
             candidate.firstName +
@@ -210,16 +210,16 @@ function findMatchingProfessor(html, sdsuProfessorName) {
                 candidate
             );
 
-            matches.add(candidate.url);
+            // Relay data can contain duplicate records for one profile.
+            matches.set(candidate.url, {
+                name: rmpName,
+                url: candidate.url
+            });
         }
     }
 
-    if (matches.size === 1) {
-        return [...matches][0];
-    }
-
-    console.log("No unique professor match:", matches.size);
-    return null;
+    console.log("Possible professor matches:", matches.size);
+    return [...matches.values()];
 }
 
 

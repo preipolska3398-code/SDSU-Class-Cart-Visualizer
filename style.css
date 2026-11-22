@@ -34,3 +34,13 @@ p {
 .course:last-child {
     border-bottom: none;
 }
+
+.professor-matches {
+    margin: 8px 0;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.professor-matches li {
+    margin: 6px 0;
+}
