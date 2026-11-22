@@ -32,6 +32,20 @@ async function findRateMyProfessor(instructor) {
 
     const searchUrl = buildSearchUrl(cleanName);
 
+    const parsed = parseProfessorName(cleanName);
+
+    // An initial cannot reliably identify a professor
+    // from potentially incomplete search results.
+    if (parsed.firstName.length === 1) {
+        console.log("Initial-only name; using search link:", cleanName);
+        return {
+            ok: true,
+            direct: false,
+            instructor: cleanName,
+            url: searchUrl
+        };
+    }
+
     const response = await fetch(searchUrl, {
         method: "GET",
         credentials: "omit"
