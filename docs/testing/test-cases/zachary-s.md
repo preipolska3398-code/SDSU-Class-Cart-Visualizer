@@ -35,7 +35,7 @@ HOW TO USE THIS FILE
 **Expected result: Return a RMP link to Jorge Hernandez-Calderon**
 **Actual result: Professor not found**
 **Status: Fail**
-**Severity: Major (PR4 severity: Medium; proposed priority: Medium)**
+**Severity: Medium**
 **V or V: Validation**
 **GitHub Issue: Pending verification; no confirmed Issue URL recorded.**
 **GitHub Issue: #76**

@@ -31,31 +31,38 @@ async function findRateMyProfessor(instructor) {
     }
 
     const searchUrl = buildSearchUrl(cleanName);
+    const parsed = parseProfessorName(cleanName);
+    const queries = [cleanName];
 
-    const response = await fetch(searchUrl, {
-        method: "GET",
-        credentials: "omit"
-    });
-
-    if (!response.ok) {
-        throw new Error(
-            `Rate My Professors returned HTTP ${response.status}`
-        );
+    // An initial-only search may omit the intended professor.
+    if (parsed.firstName.length === 1 && parsed.lastName) {
+        queries.push(parsed.lastName);
     }
 
-    const html = await response.text();
+    for (const query of queries) {
+        const response = await fetch(buildSearchUrl(query), {
+            method: "GET",
+            credentials: "omit"
+        });
 
-    const professorUrl =
-        findMatchingProfessor(html, cleanName);
+        if (!response.ok) {
+            throw new Error(
+                `Rate My Professors returned HTTP ${response.status}`
+            );
+        }
 
-    // professor page found
-    if (professorUrl) {
-        return {
-            ok: true,
-            direct: true,
-            instructor: cleanName,
-            url: professorUrl
-        };
+        const html = await response.text();
+        // Keep the original initial when filtering surname-only results.
+        const professorUrl = findMatchingProfessor(html, cleanName);
+
+        if (professorUrl) {
+            return {
+                ok: true,
+                direct: true,
+                instructor: cleanName,
+                url: professorUrl
+            };
+        }
     }
 
     // No match found, so use the search page instead
@@ -179,6 +186,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
     /*
         Compare the SDSU professor with each RMP professor.
     */
+    const matches = new Set();
     for (const candidate of candidates) {
         const rmpName =
             candidate.firstName +
@@ -203,14 +211,15 @@ function findMatchingProfessor(html, sdsuProfessorName) {
                 candidate
             );
 
-            return candidate.url;
+            matches.add(candidate.url);
         }
     }
 
-    console.log(
-        "No professor name matched."
-    );
+    if (matches.size === 1) {
+        return [...matches][0];
+    }
 
+    console.log("No unique professor match:", matches.size);
     return null;
 }
 
@@ -219,11 +228,14 @@ function namesMatch(sdsuName, rmpName) {
     const sdsu = parseProfessorName(sdsuName);
     const rmp = parseProfessorName(rmpName);
 
-    // Last names must match.
+    // Accept an exact surname or an exact hyphen-separated component.
     if (
         !sdsu.lastName ||
         !rmp.lastName ||
-        sdsu.lastName !== rmp.lastName
+        (
+            sdsu.lastName !== rmp.lastName &&
+            !rmp.lastName.split("-").includes(sdsu.lastName)
+        )
     ) {
         return false;
     }
@@ -235,7 +247,6 @@ function namesMatch(sdsuName, rmpName) {
     ) {
         return sdsu.firstName === rmp.firstName;
     }
-
     // If either site gives only an initial,
     // compare first initials.
     if (

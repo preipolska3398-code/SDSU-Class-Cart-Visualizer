@@ -30,6 +30,7 @@ Fill this in **after** everyone's work is merged. One row per requirement.
 | REQ-ZS-01 | CR-2 | Zachary Soriano | ZS-04 | 1 Pass | None |
 | REQ-ZS-02 | New | Zachary Soriano | ZS-01, ZS-02, ZS-03 | 2 Pass, 1 Fail | #64 |
 | REQ-ZS-03 | New | Zachary Soriano | ZS-05 | 1 Pass | None |
+| REQ-ZS-05 | New | Zachary Soriano | ZS-06 | 1 Fail | #76 |
 | NFR-ZS-01 | New | Zachary Soriano | None | Untested | None |
 | REQ-ZS-04 | CR-3 | Zachary Soriano | None | Untested | None |
 | G-MA-01 | New | Mehla Abebe| MA-01 | 1 Pass| None |
@@ -88,9 +89,9 @@ A Validation finding means the system does what the requirement says, but the re
 | | Count |
 |---|---|
 | Part 5 requirements carried over | 5 (`CR-1`, `CR-2`, `CR-3`, `CR-4`, `CR-5`) |
-| New requirements added | 17 (`4 Goals`, `8 REQs`, `5 NFRs` across CC, JS, ZS, MA) |
+| New requirements added | 18 (`4 Goals`, `9 REQs`, `5 NFRs` across CC, JS, ZS, MA) |
 | Part 6 tests upgraded (out of 3) | 3 (`TC-1` → `JS-01`, `TC-2` → `ZS-01`, `TC-3` → `ZS-02`) |
-| Total requirements | 22 (`4 Goals`, `13 REQs`, `5 NFRs`) |
+| Total requirements | 23 (`4 Goals`, `14 REQs`, `5 NFRs`) |
 | Total test cases | 20 (`5 CC`, `5 JS`, `6 ZS`, `4 MA`) |
 | Passed | 12 (`CC-01`, `CC-02`, `JS-01`, `JS-02`, `JS-04`, `JS-05`, `ZS-01`, `ZS-02`, `ZS-04`, `ZS-05`, `MA-01`, `Ma-04`) |
 | Failed | 8 (`CC-03`, `CC-04`, `CC-05`, `JS-03`, `ZS-03`, `ZS-06`, `MA-03`, `MA-02`) |
