@@ -1,9 +1,13 @@
 # Name shown for the workflow in GitHub Actions
-name: Requirement Base Tests
+name: Regression Tests
 
 # Run this workflow whenever a pull request is created or updated
 on:
   pull_request:
+  push:
+    branches:
+      - main
+      - issue/ambiguous-prof-match
 
 jobs:
   test:
@@ -21,7 +25,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       # Run the test command defined in package.json
       - name: Run tests

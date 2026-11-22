@@ -2,6 +2,7 @@
   "name": "aztec-schedule-sync",
   "version": "1.0.0",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test \"tests/*.js\"",
+    "test:zs-03": "node --test tests/zs-03.test.js"
   }
 }

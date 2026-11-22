@@ -10,4 +10,4 @@ Before:
 After:
 ![Screenshot](./screenshots/zachary_soriano_64_after.png)
 Code Bug: Code was unable to retrieve all matching professors on RMP.
-AI Disclosure: Utilized AI for css styling/popup design. Helped identify the location of the bug, and what I should do to fix it.
+AI Disclosure: Utilized AI for css styling/popup design. Helped identify the location of the bug, and what I should do to fix it. Utilized AI for regression testing.
