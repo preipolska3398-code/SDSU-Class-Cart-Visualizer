@@ -136,6 +136,31 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return;
                                 }
 
+                                if (
+                                    Array.isArray(result.matches) &&
+                                    result.matches.length > 1
+                                ) {
+                                    rmpStatus.textContent =
+                                        `Found ${result.matches.length} possible matches on RMP. Choose your professor:`;
+
+                                    const matchesList = document.createElement("ul");
+                                    matchesList.className = "professor-matches";
+
+                                    result.matches.forEach((match) => {
+                                        const item = document.createElement("li");
+                                        const profileLink = document.createElement("a");
+                                        profileLink.textContent = match.name;
+                                        profileLink.href = match.url;
+                                        profileLink.target = "_blank";
+                                        profileLink.rel = "noopener noreferrer";
+                                        item.appendChild(profileLink);
+                                        matchesList.appendChild(item);
+                                    });
+
+                                    courseDiv.appendChild(matchesList);
+                                    return;
+                                }
+
                                 const link =
                                     document.createElement(
                                         "a"
