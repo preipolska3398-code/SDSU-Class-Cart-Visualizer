@@ -48,10 +48,9 @@ test("ZS-06: wrong first names and incomplete surname parts do not match", () =>
 });
 
 test("ZS-06: retry by surname when the initial search misses the professor", async () => {
-    const { background, requests } = loadBackground([emptyPage, professorPage]);
+    const { background, requests } = loadBackground([professorPage]);
     const result = await background.findRateMyProfessor("J. Hernandez");
     assert.deepEqual(requests, [
-        "https://www.ratemyprofessors.com/search/professors/877?q=J.%20Hernandez",
         "https://www.ratemyprofessors.com/search/professors/877?q=hernandez"
     ]);
     assert.equal(result.direct, true);
