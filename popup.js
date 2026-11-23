@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         if (course.schedule) {
                             const schedule = document.createElement("p");
+                            schedule.className = "schedule";
                             schedule.textContent = "Schedule: " + course.schedule;
                             courseDiv.appendChild(schedule);
                         }

@@ -39,6 +39,11 @@ p {
     white-space: pre-line;
 }
 
+.course .schedule {
+    white-space: pre-line;
+}
+
+
 .professor-matches {
     margin: 8px 0;
     padding-left: 20px;
