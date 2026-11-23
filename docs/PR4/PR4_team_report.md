@@ -21,6 +21,20 @@ Team 14: Carissa Chen, Julian Vasquez, Mehla Abebe, Zachary Soriano
 
 ## 4. Feature Decision
 
+- **GitHub Issue:** https://github.com/preipolska3398-code/SDSU-Class-Cart-Visualizer/issues/88
+- **User Story:** I want to detect overlapping days and meeting times between courses in my shopping cart and my currently enrolled classes so that I can avoid time conflicts before attempting to enroll.
+- **Rationale:** Currently, `content.js` extracts raw `course.schedule` strings and `popup.js` renders them as plain text without comparing meeting times against a student's currently enrolled schedule. Detecting day/time overlaps prevents registration errors on my.SDSU and helps students choose conflict-free sections while checking Rate My Professors ratings.
+- **Planned Ownership:**
+  - **Enrolled Schedule Scraping (`content.js`):** Julian Saquic
+  - **Time-Range Parsing & Conflict Logic (`scheduleConflict.js`):** Zachary Soriano
+  - **Popup Conflict Warning UI (`popup.js`, `style.css`):** Mehla Abebe
+  - **Edge-Case Messaging & Regression Tests (`popupMessages.js`, `tests/`):** Carissa Chen
+- ## Acceptance Test Cases
+1. **TC-FEAT-01:** A student is enrolled in `CS 370 (MW 2:00PM - 3:15PM)` and has `CS 450 (MW 2:30PM - 3:45PM)` in their shopping cart. Open the popup. **Expected:** The popup displays a clear time-conflict warning on the `CS 450` card indicating that it overlaps with `CS 370 (MW 2:00PM - 3:15PM)`.
+2. **TC-FEAT-02:** A student is enrolled in `CS 370 (MW 2:00PM - 3:15PM)` and has `CS 460 (TTh 2:00PM - 3:15PM)` and `CS 490 (TBA)` in their shopping cart. Open the popup. **Expected:** Neither `CS 460` nor `CS 490` displays a false conflict warning, and no errors are thrown.
+
+
 ## 5. Board Snapshot
+
 
 ## 6. Sprint Summary
