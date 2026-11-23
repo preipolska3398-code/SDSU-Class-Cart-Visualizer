@@ -39,3 +39,5 @@ Team 14: Carissa Chen, Julian Vasquez, Mehla Abebe, Zachary Soriano
 ![GitHub Projects board snapshot](screenshots/board.png)
 
 ## 6. Sprint Summary
+
+In PR4, We as a team fixed issues that were found in the last sprint. All fixes were reviewed by teammates, and merged into `main`, leaving the codebase stable for implementing schedule time-conflict detection against currently enrolled classes next sprint.
