@@ -36,5 +36,6 @@ Team 14: Carissa Chen, Julian Vasquez, Mehla Abebe, Zachary Soriano
 
 ## 5. Board Snapshot
 
+![GitHub Projects board snapshot](screenshots/board.png)
 
 ## 6. Sprint Summary
