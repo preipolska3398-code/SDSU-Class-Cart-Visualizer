@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             chrome.runtime.lastError
                         );
 
+                        // Issue #69: tell logged-out users to log in
                         container.textContent =
-                            "Could not connect to SDSU page.";
+                            getConnectionErrorMessage(tabs[0].url);
 
                         return;
                     }
@@ -135,6 +136,31 @@ document.addEventListener("DOMContentLoaded", () => {
                                         course.professor
                                     );
 
+                                    return;
+                                }
+
+                                if (
+                                    Array.isArray(result.matches) &&
+                                    result.matches.length > 1
+                                ) {
+                                    rmpStatus.textContent =
+                                        `Found ${result.matches.length} possible matches on RMP. Choose your professor:`;
+
+                                    const matchesList = document.createElement("ul");
+                                    matchesList.className = "professor-matches";
+
+                                    result.matches.forEach((match) => {
+                                        const item = document.createElement("li");
+                                        const profileLink = document.createElement("a");
+                                        profileLink.textContent = match.name;
+                                        profileLink.href = match.url;
+                                        profileLink.target = "_blank";
+                                        profileLink.rel = "noopener noreferrer";
+                                        item.appendChild(profileLink);
+                                        matchesList.appendChild(item);
+                                    });
+
+                                    courseDiv.appendChild(matchesList);
                                     return;
                                 }
 

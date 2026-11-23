@@ -46,6 +46,12 @@ The extension gets the professor name from the SDSU page, searches Rate My Profe
 - If you work on branches and need to test things, you should go to the chrome://extensions again and relaod the extension to make sure it is updated. After that you also need to reopen the sdsu website (reload is not enough).
 
 
+## How to run the tests
+
+1. Install Node.js 24 (includes npm).
+2. Open a terminal in the repository root, beside `package.json`.
+3. Run `npm test` to run every JavaScript test in `tests/`, including the original Part 6 test and the Issue #76 regression tests.
+
 ## Bugs/Improvements
 
 - Sometimes when only the first initial of the professor is provided on the sdsu page, the search will fail in Rate My Professor.

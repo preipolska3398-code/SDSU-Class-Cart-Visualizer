@@ -31,8 +31,12 @@ async function findRateMyProfessor(instructor) {
     }
 
     const searchUrl = buildSearchUrl(cleanName);
+    const parsed = parseProfessorName(cleanName);
+    const searchQuery = parsed.firstName.length === 1
+        ? parsed.lastName
+        : cleanName;
 
-    const response = await fetch(searchUrl, {
+    const response = await fetch(buildSearchUrl(searchQuery), {
         method: "GET",
         credentials: "omit"
     });
@@ -44,26 +48,23 @@ async function findRateMyProfessor(instructor) {
     }
 
     const html = await response.text();
+    const matches = findMatchingProfessors(html, cleanName);
 
-    const professorUrl =
-        findMatchingProfessor(html, cleanName);
-
-    // professor page found
-    if (professorUrl) {
+    if (matches.length === 1) {
         return {
             ok: true,
             direct: true,
             instructor: cleanName,
-            url: professorUrl
+            url: matches[0].url
         };
     }
 
-    // No match found, so use the search page instead
     return {
         ok: true,
         direct: false,
         instructor: cleanName,
-        url: searchUrl
+        url: searchUrl,
+        matches
     };
 }
 
@@ -95,7 +96,7 @@ function cleanInstructorName(name) {
 }
 
 
-function findMatchingProfessor(html, sdsuProfessorName) {
+function findMatchingProfessors(html, sdsuProfessorName) {
     const startMarker = "window.__RELAY_STORE__ = ";
     const endMarker = "window.process = {}";
 
@@ -109,7 +110,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
         endIndex <= startIndex
     ) {
         console.log("Could not find RMP relay data.");
-        return null;
+        return [];
     }
 
     // Pull out just the JSON stored in __RELAY_STORE__
@@ -137,7 +138,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
             error
         );
 
-        return null;
+        return [];
     }
 
     const candidates = [];
@@ -179,6 +180,7 @@ function findMatchingProfessor(html, sdsuProfessorName) {
     /*
         Compare the SDSU professor with each RMP professor.
     */
+    const matches = new Map();
     for (const candidate of candidates) {
         const rmpName =
             candidate.firstName +
@@ -203,15 +205,16 @@ function findMatchingProfessor(html, sdsuProfessorName) {
                 candidate
             );
 
-            return candidate.url;
+            // Relay data can contain duplicate records for one profile.
+            matches.set(candidate.url, {
+                name: rmpName,
+                url: candidate.url
+            });
         }
     }
 
-    console.log(
-        "No professor name matched."
-    );
-
-    return null;
+    console.log("Possible professor matches:", matches.size);
+    return [...matches.values()];
 }
 
 
@@ -219,11 +222,14 @@ function namesMatch(sdsuName, rmpName) {
     const sdsu = parseProfessorName(sdsuName);
     const rmp = parseProfessorName(rmpName);
 
-    // Last names must match.
+    // Accept an exact surname or an exact hyphen-separated component.
     if (
         !sdsu.lastName ||
         !rmp.lastName ||
-        sdsu.lastName !== rmp.lastName
+        (
+            sdsu.lastName !== rmp.lastName &&
+            !rmp.lastName.split("-").includes(sdsu.lastName)
+        )
     ) {
         return false;
     }
@@ -235,7 +241,6 @@ function namesMatch(sdsuName, rmpName) {
     ) {
         return sdsu.firstName === rmp.firstName;
     }
-
     // If either site gives only an initial,
     // compare first initials.
     if (
@@ -305,4 +310,4 @@ function extractText(html) {
         .replace(/&#39;/gi, "'")
         .replace(/\s+/g, " ")
         .trim();
-}
+}   
