@@ -8,11 +8,13 @@ Team 14: Carissa Chen, Julian Vasquez, Mehla Abebe, Zachary Soriano
 |---|---|---|---|---|---|---|
 | ZS-06: Hyphenated surname lookup | Code bug | #76 | Medium | Medium | Zachary Soriano | Fixed |
 | ZS-03: Ambiguous professor matches | Code bug | #64 | High | High | Zachary Soriano | Fixed|
+| JS-03: No professor name matches | Code bug | #65 | Medium | Medium | Julian | Fixed|
 
 ## 2. Regression Log
 
 - November 21, 2026: Hyphenated-surname fix checked.
 - November 22, 2026: Ambiguous-match fix checked.
+- November 22, 2026: No-Match fix checked.
 
 ## 3. Final Test Run
 
