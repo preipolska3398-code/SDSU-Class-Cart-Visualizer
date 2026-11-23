@@ -34,15 +34,15 @@ function getShoppingCartClasses() {
                 : "Professor not found",
 
             schedule: scheduleIndex >= 0
-                ? row.cells[scheduleIndex].textContent.trim()
+                ? (row?.cells?.[scheduleIndex]?.textContent || "").trim()
                 : "",
 
             seats: seatsIndex >= 0
-                ? row.cells[seatsIndex].textContent.trim()
+                ? (row?.cells?.[seatsIndex]?.textContent || "").trim()
                 : "",
 
             room: roomIndex >= 0
-                ? row.cells[roomIndex].textContent.trim()
+                ? (row?.cells?.[roomIndex]?.textContent || "").trim()
                 : ""
         });
     });
