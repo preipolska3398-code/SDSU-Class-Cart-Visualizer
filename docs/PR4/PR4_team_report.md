@@ -21,7 +21,7 @@ Team 14: Carissa Chen, Julian Vasquez, Mehla Abebe, Zachary Soriano
 - November 23, 2026: Location, date and time formatting fix broke Test JS-06
 
 ## 3. Final Test Run
-
+(PR4/screenshots/final_run_test.png)
 ## 4. Feature Decision
 
 - **GitHub Issue:** https://github.com/preipolska3398-code/SDSU-Class-Cart-Visualizer/issues/88
