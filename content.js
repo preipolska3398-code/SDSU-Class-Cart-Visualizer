@@ -25,6 +25,7 @@ function getShoppingCartClasses() {
         const seatsIndex = headers.findIndex((header) =>
             /seat|enrollment|capacity/i.test(header.textContent)
         );
+        
        
         let roomText = "";
 
@@ -48,7 +49,8 @@ function getShoppingCartClasses() {
             schedule: scheduleIndex >= 0
                 ? row.cells[scheduleIndex].textContent.trim()
                 : "",
-
+            
+            //schedule: scheduleText,
             seats: seatsIndex >= 0
                 ? row.cells[seatsIndex].textContent.trim()
                 : "",
