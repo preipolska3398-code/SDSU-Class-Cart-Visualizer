@@ -1,4 +1,4 @@
-{
+https://github.com/preipolska3398-code/SDSU-Class-Cart-Visualizer/edit/carissa-pr4/manifest.jsonp{
   "manifest_version": 3,
   "name": "Aztec Schedule Sync",
   "version": "1.0.0",
@@ -10,7 +10,6 @@
   },
 
   "permissions": [
-    "storage",
     "tabs",
     "activeTab"
   ],
