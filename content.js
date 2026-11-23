@@ -47,12 +47,12 @@ function getShoppingCartClasses() {
                 : "Professor not found",
 
             schedule: scheduleIndex >= 0
-                ? row.cells[scheduleIndex].textContent.trim()
+                ? (row?.cells?.[scheduleIndex]?.textContent || "").trim()
                 : "",
             
             //schedule: scheduleText,
             seats: seatsIndex >= 0
-                ? row.cells[seatsIndex].textContent.trim()
+                ? (row?.cells?.[seatsIndex]?.textContent || "").trim()
                 : "",
 
            // room: roomIndex >= 0
