@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             chrome.runtime.lastError
                         );
 
+                        // Issue #69: tell logged-out users to log in
                         container.textContent =
-                            "Could not connect to SDSU page.";
+                            getConnectionErrorMessage(tabs[0].url);
 
                         return;
                     }

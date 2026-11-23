@@ -31,9 +31,7 @@ async function findRateMyProfessor(instructor) {
     }
 
     const searchUrl = buildSearchUrl(cleanName);
-
     const parsed = parseProfessorName(cleanName);
-    // Search by surname when the first name is only an initial.
     const searchQuery = parsed.firstName.length === 1
         ? parsed.lastName
         : cleanName;
@@ -50,10 +48,8 @@ async function findRateMyProfessor(instructor) {
     }
 
     const html = await response.text();
-
     const matches = findMatchingProfessors(html, cleanName);
 
-    // professor page found
     if (matches.length === 1) {
         return {
             ok: true,
@@ -63,7 +59,6 @@ async function findRateMyProfessor(instructor) {
         };
     }
 
-    // Let the popup list ambiguous matches, or fall back to search if empty.
     return {
         ok: true,
         direct: false,
@@ -227,11 +222,14 @@ function namesMatch(sdsuName, rmpName) {
     const sdsu = parseProfessorName(sdsuName);
     const rmp = parseProfessorName(rmpName);
 
-    // Last names must match.
+    // Accept an exact surname or an exact hyphen-separated component.
     if (
         !sdsu.lastName ||
         !rmp.lastName ||
-        sdsu.lastName !== rmp.lastName
+        (
+            sdsu.lastName !== rmp.lastName &&
+            !rmp.lastName.split("-").includes(sdsu.lastName)
+        )
     ) {
         return false;
     }
@@ -243,7 +241,6 @@ function namesMatch(sdsuName, rmpName) {
     ) {
         return sdsu.firstName === rmp.firstName;
     }
-
     // If either site gives only an initial,
     // compare first initials.
     if (

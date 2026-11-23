@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - issue/ambiguous-prof-match
+      - issue/document-hyphenated-surname
 
 jobs:
   test:
