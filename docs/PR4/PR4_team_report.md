@@ -9,6 +9,7 @@ Team 14: Carissa Chen, Julian Vasquez, Mehla Abebe, Zachary Soriano
 | ZS-06: Hyphenated surname lookup | Code bug | #76 | Medium | Medium | Zachary Soriano | Fixed |
 | ZS-03: Ambiguous professor matches | Code bug | #64 | High | High | Zachary Soriano | Fixed|
 | JS-03: No professor name matches | Code bug | #65 | Medium | Medium | Julian | Fixed|
+| JS-06: Missing table cells throw TypeError | Code bug | #86 | Medium | Medium | Julian Saquic | Fixed |
 
 ## 2. Regression Log
 
