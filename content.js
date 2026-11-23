@@ -81,6 +81,7 @@ if (typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.onMessage)
     );
 }
 
+// Export the function so Node.js can test it
 if (typeof module !== "undefined" && module.exports) {
     module.exports = { getShoppingCartClasses };
 }
