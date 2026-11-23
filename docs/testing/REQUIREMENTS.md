@@ -95,6 +95,7 @@ RULES
 | REQ-ZS-01 | When a course's instructor name contains "to be announced" ignoring caps, the popup should display course infromation without trying to send a request for professor's RMP link for that course| Confirmed | CR2: The system shall suppress the Rate My Professor lookup process when the instructor name contains "to be announced". |
 | REQ-ZS-02 | When a professor lookup returns a url comtaining /professor/, the popup should display an Open Rate My Professor link pointing to the url. Selecting the link opens the link in a new tab| Confirmed | New |
 | REQ-ZS-03 | When a lookup returns a search URL, returns no url, or reports a messaging error, the popup should display: "Professor profile not found", and a "Search Rate My Professors" linl which when opened should open the SDSU RMP search URL.| Confirmed | New |
+| REQ-ZS-05 | When RMP lookup results contain exactly one candidate whose full first name matches the SDSU instructor and whose hyphenated surname contains the SDSU surname as an exact hyphen-separated component, the system shall return that candidate's profile URL. If multiple candidates qualify, it shall return the search URL instead. | Suspected bug | New (ZS-06) |
 
 ### Non-Functional Requirements
 
