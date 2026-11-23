@@ -74,7 +74,7 @@ function getShoppingCartClasses() {
             */
             schedule: scheduleText,
             seats: seatsIndex >= 0
-                ? row.cells[seatsIndex].textContent.trim()
+                ? (row?.cells?.[seatsIndex]?.textContent || "").trim()
                 : "",
 
            // room: roomIndex >= 0
