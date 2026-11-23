@@ -25,6 +25,19 @@ function getShoppingCartClasses() {
         const seatsIndex = headers.findIndex((header) =>
             /seat|enrollment|capacity/i.test(header.textContent)
         );
+        
+       
+        let roomText = "";
+
+        if (roomIndex >= 0) {
+            roomText = row.cells[roomIndex].textContent.trim();
+
+            // Add a line break between the room number and the next location
+            roomText = roomText.replace(
+                /(\d+)\s*(?=[A-Za-z])/,
+            "$1\n"
+        );
+        }
 
         classes.push({
             className: courseElement.textContent.trim(),
@@ -36,14 +49,16 @@ function getShoppingCartClasses() {
             schedule: scheduleIndex >= 0
                 ? (row?.cells?.[scheduleIndex]?.textContent || "").trim()
                 : "",
-
+            
+            //schedule: scheduleText,
             seats: seatsIndex >= 0
                 ? (row?.cells?.[seatsIndex]?.textContent || "").trim()
                 : "",
 
-            room: roomIndex >= 0
-                ? (row?.cells?.[roomIndex]?.textContent || "").trim()
-                : ""
+           // room: roomIndex >= 0
+              //  ? row.cells[roomIndex].textContent.trim()
+               // : ""
+            room: roomText
         });
     });
 
@@ -66,3 +81,7 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
+// Export the function so Node.js can test it
+if (typeof module !== "undefined") {
+    module.exports = { getShoppingCartClasses };
+}

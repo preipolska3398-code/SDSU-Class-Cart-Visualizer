@@ -63,12 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             schedule.textContent = "Schedule: " + course.schedule;
                             courseDiv.appendChild(schedule);
                         }
-
+                       
                         if (course.room) {
                             const room = document.createElement("p");
+                            room.className = "room";
                             room.textContent = "Room: " + course.room;
                             courseDiv.appendChild(room);
                         }
+                        
 
                         if (course.seats) {
                             const seats = document.createElement("p");
@@ -114,9 +116,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                 if (
                                     chrome.runtime.lastError
                                 ) {
-                                    console.error(
+                                   console.error(
                                         chrome.runtime.lastError
                                     );
+                                
 
                                     showSearchLink(
                                         courseDiv,

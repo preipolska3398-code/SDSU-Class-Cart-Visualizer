@@ -3,7 +3,7 @@ body {
     padding: 20px;
 
     color: black;
-    background-color: white;
+    background-color: rgb(247, 243, 243);
 
     font-family: Arial, sans-serif;
 
@@ -33,6 +33,10 @@ p {
 
 .course:last-child {
     border-bottom: none;
+}
+
+.course .room {
+    white-space: pre-line;
 }
 
 .professor-matches {
