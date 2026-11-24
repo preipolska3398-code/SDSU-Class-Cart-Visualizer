@@ -10,15 +10,18 @@ Team 14: Carissa Chen, Julian Vasquez, Mehla Abebe, Zachary Soriano
 | ZS-03: Ambiguous professor matches | Code bug | #64 | High | High | Zachary Soriano | Fixed|
 | JS-03: No professor name matches | Code bug | #65 | Medium | Medium | Julian | Fixed|
 | JS-06: Missing table cells throw TypeError | Code bug | #86 | Medium | Medium | Julian Saquic | Fixed |
+| Edge-Case-Test1: Location formatting trailing| code bug | #83| Low| Low | Mehla Abebe| Fixed|
+| Edge-Case-Test2: Day and Time  formatting trailing| code bug | #82| Low| Low | Mehla Abebe| Fixed|
 
 ## 2. Regression Log
 
 - November 21, 2026: Hyphenated-surname fix checked.
 - November 22, 2026: Ambiguous-match fix checked.
 - November 22, 2026: No-Match fix checked.
+- November 23, 2026: Location, date and time formatting fix broke Test JS-06
 
 ## 3. Final Test Run
-
+(PR4/screenshots/final_run_test.png)
 ## 4. Feature Decision
 
 - **GitHub Issue:** https://github.com/preipolska3398-code/SDSU-Class-Cart-Visualizer/issues/88
