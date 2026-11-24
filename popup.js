@@ -85,11 +85,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         // Do not show an RMP link
                         // if no professor is assigned.
+                        const normalizedProf = (course.professor || "")
+                            .trim()
+                            .toLowerCase();
+
                         if (
-                            !course.professor ||
-                            course.professor
-                                .toLowerCase()
-                                .includes("to be announced")
+                            !normalizedProf ||
+                            normalizedProf === "tba" ||
+                            normalizedProf.includes("to be announced") ||
+                            normalizedProf === "professor not found"
                         ) {
                             return;
                         }
